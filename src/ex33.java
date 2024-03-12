@@ -5,25 +5,15 @@
 class HanaAccount {
     private int accountNumber = 1234;
     private String name = "홍길동";
-    private int remainMoney = 1000;
+    private double remainMoney = 1000;
     private double interestRate = 0.03;
+    private static HanaAccount singleton;
 
-    void deposit(int money) {
-        this.remainMoney += money;
-        System.out.println("100원 입금되었습니다. 총 잔액: " + this.remainMoney);
-    }
-
-    void withdraw(int money) {
-        this.remainMoney -= money;
-        System.out.println("100원 출금되었습니다. 총 잔액: " + this.remainMoney);
-    }
-
-    void remainInterestRate() {
-        this.remainMoney += (int) (this.remainMoney * this.interestRate);
-    }
-
-    int checkRemainMoney() {
-        return this.remainMoney;
+    static HanaAccount getInstance() {
+        if (singleton == null) {
+            singleton = new HanaAccount();
+        }
+        return singleton;
     }
 
     public int getAccountNumber() {
@@ -42,27 +32,27 @@ class HanaAccount {
         this.name = name;
     }
 
-    public int getRemainMoney() {
+    public double getRemainMoney() {
         return remainMoney;
     }
 
-    public void setRemainMoney(int remainMoney) {
+    public void setRemainMoney(double remainMoney) {
         this.remainMoney = remainMoney;
     }
 
-    public double getInterestRate() {
-        return interestRate;
+    public void deposit(int balance) {
+        this.remainMoney += balance;
+        System.out.println("100원 입금되었습니다. 총 잔액: " + this.remainMoney);
     }
 
-    public void setInterestRate(double interestRate) {
-        this.interestRate = interestRate;
+    void withdraw(int balance) {
+        this.remainMoney -= balance;
+        System.out.println("100원 출금되었습니다. 총 잔액: " + this.remainMoney);
     }
 
-    private static HanaAccount singleton =
-            new HanaAccount();
-
-    static HanaAccount getInstance() {
-        return singleton;
+    void remainInterestRate() {
+        System.out.println("이자 계산 완료");
+        this.remainMoney *= (1 + this.interestRate);
     }
 }
 
@@ -78,6 +68,6 @@ public class ex33 {
         //   이자계산후 잔액 증가한다.
         account.remainInterestRate();
         // 4. 최종 잔액을 출력한다.
-        System.out.println(account.checkRemainMoney());
+        System.out.println("잔액: " + account.getRemainMoney());
     }
 }
