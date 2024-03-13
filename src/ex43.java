@@ -29,7 +29,7 @@ public class ex43 {
         // 객체는 Child이지만, 타입은 Parent
         // 1. 업캐스팅: 자식 객체가 부모 클래스 타입을 가지는 것
         // 업캐스팅 할 수 있는 경우
-        // 1) 대입연산자를 통해서 자동형변환 될 때 -> 강제형변환
+        // 1) 대입연산자를 통해서 자동형변환 될 때 -> 자동형변환
         Parent p2 = new Child();
         System.out.println(p2.name); // Parent
 

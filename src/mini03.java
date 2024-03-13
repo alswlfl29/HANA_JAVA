@@ -59,7 +59,7 @@ public class mini03 {
     private static void insert() {
         Scanner scan = new Scanner(System.in);
         System.out.print("이름 입력: ");
-        String name = scan.next();
+        String name = scan.nextLine();
         System.out.print("국어점수 입력: ");
         int korScore = scan.nextInt();
         System.out.print("영어점수 입력: ");
@@ -68,7 +68,6 @@ public class mini03 {
         int mathScore = scan.nextInt();
 
         list.add(new Student(name, korScore, engScore, mathScore));
-        scan.close();
     }
 
     private static void searchAll() {
@@ -89,7 +88,6 @@ public class mini03 {
             }
         }
         if (!isSearch) System.out.println("존재하지 않는 이름입니다!");
-        scan.close();
     }
 
     private static void update() {
@@ -131,7 +129,6 @@ public class mini03 {
                 break;
             }
         }
-        scan.close();
     }
 
     private static void delete() {
@@ -147,7 +144,6 @@ public class mini03 {
             }
         }
         if (!findStudent) System.out.println("존재하지 않는 이름입니다.");
-        scan.close();
     }
 
     static void printInfo(Student student) {
