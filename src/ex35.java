@@ -1,9 +1,10 @@
 // static 초기화 블럭
 class StaticClass {
     int a;
+    // 프로그램 시작시 초기화됨
     static int b; // static int b = 0; // 암묵적으로 0으로 초기화됨
 
-    static { // 프로그램 시작 시(main 함수 이전에) 호출됨
+    static { // => 클래스 호출 시 처음 한번만 호출됨
         b = 5;
         System.out.println("static block!");
     }

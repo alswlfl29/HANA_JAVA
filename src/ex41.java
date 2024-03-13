@@ -4,21 +4,22 @@
 // 3. final 메소드: 오버라이드 불가
 class FinalClass {
     String name = "파이널 클래스";
-    final int price; // 상수타입의 필드, heap영역의 참조변수는 강제초기화
+    int age; // 0으로 초기화, 힙 영역의 참조변수는 강제 초기화
+    final int price = 0; // final 시에는 반드시 초기화
 
     final void disp() {
     }
 }
 
 class LastClass extends FinalClass {
-    @Override
-    void disp() {
-    } // final 메소드이므로 사용 불가
+    // @Override
+    // void disp() {
+    // } // final 메소드이므로 사용 불가
 }
 
 public class ex41 {
     public static void main(String[] args) {
         FinalClass fc = new FinalClass();
-        fc.price = 2000; // error -> final 이므로 재할당 불가
+        // fc.price = 2000; // error -> final 이므로 재할당 불가
     }
 }
